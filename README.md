@@ -2,7 +2,7 @@
 
 A real-time voice assistant that helps you schedule meetings through natural conversation. Speak to the assistant, provide your details, and it automatically creates Google Calendar events.
 
-**[🔗 Live Demo](https://voice-bot-your-deployment.vercel.app)** *(Update with your deployed URL)*
+**[🔗 Live Demo](https://calendar-assistant-bot.netlify.app)** 
 
 ---
 
@@ -38,7 +38,7 @@ User Browser ──WebRTC──▶ VAPI Cloud (STT + LLM + TTS)
 - **Voice AI**: VAPI Web SDK (`@vapi-ai/web`) with Deepgram STT + ElevenLabs TTS
 - **LLM**: OpenAI GPT-4o-mini (via VAPI)
 - **Calendar**: Google Calendar API via `googleapis` (service account auth)
-- **Deployment**: Vercel
+- **Deployment**: Netlify
 
 ---
 
@@ -115,7 +115,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-> **Note:** For local development, VAPI tool calls need to reach your server. You may need to use a tunneling tool like [ngrok](https://ngrok.com) to expose your local server, or deploy to Vercel first.
+> **Note:** For local development, VAPI tool calls need to reach your server. You may need to use a tunneling tool like [ngrok](https://ngrok.com) or [Cloudflare Quick Tunnels](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/run-tunnel/trycloudflare/) to expose your local server, or deploy to Netlify first.
 
 ---
 
@@ -140,14 +140,15 @@ The calendar integration uses **Google Calendar API v3** with a **service accoun
 
 ---
 
-## 🚢 Deployment (Vercel)
+## 🚢 Deployment (Netlify)
 
 1. Push code to GitHub
-2. Import project on [vercel.com](https://vercel.com)
-3. Add all environment variables in Vercel Dashboard → Settings → Environment Variables
-4. Deploy!
+2. Login to [Netlify.com](https://app.netlify.com) using your GitHub account
+3. Click "Add new site" → "Import an existing project" and select the repository
+4. Click "Add environment variables" and paste all keys from `.env.local`
+5. Click "Deploy site"
 
-The webhook URL for VAPI tool calls will automatically be `https://your-domain.vercel.app/api/vapi/webhook`.
+The webhook URL for VAPI tool calls will automatically be your deployed Netlify URL (e.g., `https://calendar-assistant-bot.netlify.app/api/vapi/webhook`).
 
 ---
 
